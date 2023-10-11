@@ -1,24 +1,26 @@
 package hw03;
+
 import java.util.Scanner;
+
 public class Task03 {
     public static void main(String[] args) {
         // Вывести на экран первые 10
         // элементов последовательности
         //       2 4 6 8 10 и тд
 
-         int num = 0;
-         for (int i=0; i < 10; i++){
-             num += 2;
-             System.out.println(num);
-         }
+        int num = 0;
+        for (int i = 0; i < 10; i++) {
+            num += 2;
+            System.out.println(num);
+        }
 
-         // Для введённого пользователем с клавиатуры
-         // целого положительного числа посчитайте
-         // сумму всех его цифр
+        // Для введённого пользователем с клавиатуры
+        // целого положительного числа посчитайте
+        // сумму всех его цифр
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите целое положительное число");
-        int number =  scanner.nextInt();
+        int number = scanner.nextInt();
         int sum = 0;
         while (number != 0) {
 
@@ -37,7 +39,7 @@ public class Task03 {
         //Если введен 0, вывести "выход из программы" (программа завершает работу)
 
 
-        int x = 1 + (int) (Math.random()*(10));// x - загаданное число
+        int x = 1 + (int) (Math.random() * (10));// x - загаданное число
         System.out.println("Введите число.");
         Scanner scan = new Scanner(System.in);
 
@@ -56,6 +58,7 @@ public class Task03 {
                 continue;
             } else if (x == y) System.out.print("Вы угадали!");
             break;
+
 
         }
 
