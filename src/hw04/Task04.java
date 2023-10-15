@@ -30,26 +30,26 @@ public class Task04 {
         System.out.println("Введите число");
         Scanner y = new Scanner(System.in);
         int num = y.nextInt();
-        int i = 0;
-        for (; i < temps01.length; i++) ;
-        for (; i < temps02.length; i++) ;
-
-        if (num > 0) {
-            temps01[i] = num;
-
-        }
-
-        else if (num < 0)
-
-            temps02[i] = num;
+        int x =0,z = 0;
 
 
-        //else  (num == 0) ;
+while (num !=0 && temps01.length ==temps02.length)
+    for (int i = 0; i < temps01.length; i++)
+       // for (int j = 0; j < temps02.length; j++)
+            if (num > 0) {
+            temps01[x] = num;
+            x++;
+
+
+        }else if (num < 0) {
+            temps02[z] = num;
+            z++;
+
 
             System.out.println(Arrays.toString(temps01));
             System.out.println(Arrays.toString(temps02));
+        }
     }
-    }
-
+}
 
 
