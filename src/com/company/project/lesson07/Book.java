@@ -37,12 +37,15 @@ public class Book {
         this.numberOfAutors = numberOfAutors;
     }
     public void addAuthor (Author author) {
-        for (int i = 0; i < authors.length; ) {
+
+        
+        for (int i = 0; i < authors.length;i++ ) {
             if (authors[i] == null) {
                 authors[i] = new Author();
-                i++;
+
+                return;
             }
-            return;
+
         }
     }
 }
