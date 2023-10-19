@@ -8,7 +8,10 @@ public class RepairShop {
         for (int i = 0; i < transports.length; i++) {
             if (transports == null) {
                 transports[i] = transport;
-
+                if (i == transports.length - 1 ) {
+                    System.out.println("Массив заполнен!");
+                    // break ???
+                }
             }
 
         }
