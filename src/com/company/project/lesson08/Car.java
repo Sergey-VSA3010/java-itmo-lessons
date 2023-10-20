@@ -11,7 +11,7 @@ public class Car extends Transport implements changeColor{
         super(number, levelOfWare,  240);
         this.color = "Белый";
     }
-
+    @Override
     public void setColor(String color) {
         this.color = color;
     }
@@ -32,10 +32,7 @@ public class Car extends Transport implements changeColor{
 
     }
 
-    @Override
-    public void changeColor(String color) {
 
-    }
 
     @Override
     public void defColor() {

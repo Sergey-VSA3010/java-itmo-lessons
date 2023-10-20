@@ -8,29 +8,29 @@ public class RepairShop {
         for (int i = 0; i < transports.length; i++) {
             if (transports == null) {
                 transports[i] = transport;
-                if (i == transports.length - 1 ) {
+                if (i == transports.length - 1) {
                     System.out.println("Массив заполнен!");
                     // break ???
                 }
             }
 
         }
-
-        public void repairAll ();
+    }
+        public void repairAll ()
         {
-            for (Transport transports : transports) {
+            for (Transport transport : transports) {
                 transport.stop(); // реализация у каждого класса своя!!!
                 transport.repair();
                 transport = null;
-                if (transport instanceof Car) {
-                    transport.changeColor(randomColor());
+                if (transport instanceof Car car) {
+                    car.setColor(randomColor());
                 }
                 transport = null;
 
             }
         }
 
-    }
+
 
     public String randomColor() {
         int rndNum = (int) (Math.random() * colors.length);
