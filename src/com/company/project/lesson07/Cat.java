@@ -32,6 +32,7 @@ public class Cat {
     }
 
     public void setWeight(int weight) {
+        //или через Math.random()???
         if (weight >= 1 && weight < 9)
             this.weight = weight;
         else
@@ -67,5 +68,6 @@ public class Cat {
         System.out.println(cat2.attack(cat1));
         System.out.println(cat1.attack(cat3));
         System.out.println(cat3.wins);
+
     }
 }
