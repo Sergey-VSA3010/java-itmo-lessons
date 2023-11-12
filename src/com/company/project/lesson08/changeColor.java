@@ -5,4 +5,6 @@ public interface changeColor {
 
     void setColor(String color);
     void defColor();
+
+
 }

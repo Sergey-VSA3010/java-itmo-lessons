@@ -1,6 +1,6 @@
 package com.company.project.lesson08;
 
-public class Car extends Transport implements changeColor{
+public  class Car extends Transport implements changeColor{
     private String color;
 
     public String getColor() {
