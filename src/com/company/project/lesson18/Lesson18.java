@@ -1,10 +1,11 @@
 package com.company.project.lesson18;
-import com.company.project.lesson1516.task.fruits.Fruit;
 
+import com.company.project.lesson1516.task.fruits.Fruit;
 
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 
@@ -160,7 +161,10 @@ TODO:   InterfaceName<String> object01 = (str01, str02) -> str01.toUpperCase() +
         // как любые другие экземпляры
         printOperationResult(min, 12.3, 9.9);
         printOperationResult((a, b) -> a > b ? a : b, 12.3, 9.9);
-
+        Operation operation = plus.addOperation(minus)
+                .addOperation(div)
+                .addOperation(sub);
+        System.out.println(operation.action(12.4,5.7));
 
 
         ArrayList<Integer> integers = new ArrayList<>(Arrays.asList(875, -78, 12, 56, 34, -89, 0, 344));
@@ -216,8 +220,14 @@ TODO:   InterfaceName<String> object01 = (str01, str02) -> str01.toUpperCase() +
          1. по цене
          2. по цене и количеству
         */
+        Comparator <Fruit> compareByPrice = (a,b)-> (int)(a.getPrice() - b.getPrice());
+        Comparator <Fruit> compareByCount =(f1,f2)-> f2.getCount() - f1.getCount();
+        fruits.sort(compareByPrice);
+        fruits.sort(compareByPrice.thenComparing(compareByCount));
 
-        /*
+
+    //Comparator<T>int compare(T o1, T o2);
+    /*
          Реализовать static метод, который принимает ArrayList fruits
          и Predicate filter, содержащий условие фильтрации.
          Метод возвращает список фруктов,
@@ -230,7 +240,7 @@ TODO:   InterfaceName<String> object01 = (str01, str02) -> str01.toUpperCase() +
     }
 
     // Predicate<T> boolean test(T t)
-    private static <T extends Fruit> ArrayList<T> fruitsByFilter(ArrayList<T> fruits, Predicate<? super T> filter){
+    private static <T extends Fruit> ArrayList<T> fruitsByFilter(ArrayList<T> fruits, Predicate<? super T> filter) {
         ArrayList<T> fruitArrayList = new ArrayList<>();
         for (T fruit : fruits) {
             if (filter.test(fruit)) fruitArrayList.add(fruit);
