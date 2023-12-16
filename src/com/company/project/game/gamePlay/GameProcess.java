@@ -4,10 +4,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class GameProcess {
-    public static StructureGame structureGame = GameInit.getStructureGame();
-    public static Scanner scanner = new Scanner(System.in);
 
     public static void play() {
+        StructureGame structureGame = GameInit.getStructureGame();
+        Scanner scanner = new Scanner(System.in);
         System.out.println("НАЧАЛО ИГРЫ!!!");
         GameInit.initGame();
         GameSteps currentLevel = structureGame.getStepsGame().iterator().next();
