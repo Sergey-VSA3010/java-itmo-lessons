@@ -1,4 +1,4 @@
-package com.company.project.game.gamePlay;
+package game.gamePlay;
 
 import java.io.Serializable;
 import java.util.HashMap;

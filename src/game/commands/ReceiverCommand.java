@@ -1,6 +1,6 @@
-package com.company.project.game.commands;
+package game.commands;
 
-import com.company.project.game.gamePlay.GameProcess;
+import game.gamePlay.GameProcess;
 
 public class ReceiverCommand {
     public void startGame() {
@@ -14,4 +14,6 @@ public class ReceiverCommand {
         System.out.println("ИГРА ОКОНЧЕНА!!!");
     }
 
+    public void saveGame() {
+    }
 }

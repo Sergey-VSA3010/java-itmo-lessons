@@ -1,10 +1,14 @@
-package com.company.project.game.gamePlay;
+package game.gamePlay;
 
+import java.io.*;
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Scanner;
 
-public class GameProcess {
+import static game.gamePlay.GameInit.structureGame;
 
+public class GameProcess {
+ static int countSave = 0;
     public static void play() {
         StructureGame structureGame = GameInit.getStructureGame();
         Scanner scanner = new Scanner(System.in);
@@ -29,6 +33,7 @@ public class GameProcess {
                 System.out.println(pair.getKey() + ". " + pair.getValue().getStepName());
             }
             if (menu.size() == 0) break;
+            System.out.println(++countGame + ". Сохранить игру");
             System.out.println(++countGame + ". Выход");
             System.out.println("Выбрать вариант: ");
             int choice = 1;
@@ -50,11 +55,30 @@ public class GameProcess {
                 break;
             } else {
                 currentLevel.setStartStep(true);
-
+                saveGame();
                 break;
             }
         }
     }
+    public static void saveGame() {
+
+            countSave++;
+
+        System.out.println("ИГРА СОХРАНЕНА!");
+
+        try
+                (FileOutputStream fileStream = new FileOutputStream(new File("./src/game/save/game" +
+                          "_" + countSave  + ".bin"), true);
+                 ObjectOutputStream objectOutput = new ObjectOutputStream(fileStream)) {
+            objectOutput.writeObject(structureGame);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException io) {
+            System.out.println("IOException");
+        }
+        System.out.println("Под номером " + countSave + "!");
+    }
+
 
 
 }

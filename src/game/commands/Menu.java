@@ -1,4 +1,4 @@
-package com.company.project.game.commands;
+package game.commands;
 
 import java.util.Map;
 import java.util.TreeMap;

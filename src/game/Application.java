@@ -1,6 +1,6 @@
-package com.company.project.game;
+package game;
 
-import com.company.project.game.commands.*;
+import game.commands.*;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -11,10 +11,12 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         Command startGame = new Start(command);
         Command exitGame = new Exit(command);
+        Command saveGame = new Save(command);
 
         Menu menu = new Menu();
         menu.regCommand(1, startGame);
         menu.regCommand(2, exitGame);
+        menu.regCommand(3, saveGame);
 
         while (true) {
             int choice;
@@ -34,5 +36,6 @@ public class Application {
                 scanner.next();
             }
         }
+
     }
 }

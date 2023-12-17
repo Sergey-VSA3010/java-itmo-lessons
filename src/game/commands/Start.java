@@ -1,4 +1,4 @@
-package com.company.project.game.commands;
+package game.commands;
 
 public class Start implements Command {
 private final ReceiverCommand command;

@@ -1,12 +1,12 @@
-package com.company.project.game.gamePlay;
+package game.gamePlay;
 
 public class GameInit {
-    private final static StructureGame structureGame = new StructureGame();
+    protected final static StructureGame structureGame = new StructureGame();
 
     public static void initGame(){
         GameSteps level1 = new GameSteps("Лисенок.", "Каждое утро Лисёнок просыпался, завтракал и шёл увидеться с Бельчонком. " +
-              "Это утро не было исключением. \n Лисёнок пришёл на их обычное место встречи, но Бельчонка там не было. \nЛисёнок ждал, ждал, но так и не " +
-              "смог дождаться своего друга.\n \"Бельчонок не пропустил еще ни одной встречи, вдруг он попал в беду.\" - подумал Лисёнок. \nКак поступить " +
+              "Это утро не было исключением. \n Лисёнок пришёл на их обычное место встречи, но Бельчонка там не было. \n Лисёнок ждал, ждал, но так и не " +
+              "смог дождаться своего друга.\n \"Бельчонок не пропустил еще ни одной встречи, вдруг он попал в беду.\" - подумал Лисёнок. \n Как поступить " +
               "Лисенку?"
            , false, true);
 
