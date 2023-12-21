@@ -1,8 +1,8 @@
 package game.gamePlay;
 
 public class GameInit {
-    protected final static StructureGame structureGame = new StructureGame();
-
+    protected static StructureGame structureGame = new StructureGame();
+    static int countSave;
     public static void initGame(){
         GameSteps level1 = new GameSteps("Лисенок.", "Каждое утро Лисёнок просыпался, завтракал и шёл увидеться с Бельчонком. " +
               "Это утро не было исключением. \n Лисёнок пришёл на их обычное место встречи, но Бельчонка там не было. \n Лисёнок ждал, ждал, но так и не " +

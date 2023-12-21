@@ -15,5 +15,10 @@ public class ReceiverCommand {
     }
 
     public void saveGame() {
+        GameProcess.saveGame();
+    }
+
+    public void loadGame() {
+        GameProcess.loadGame();
     }
 }

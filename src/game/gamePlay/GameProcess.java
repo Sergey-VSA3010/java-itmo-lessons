@@ -1,14 +1,17 @@
 package game.gamePlay;
 
 import java.io.*;
-import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
 
 import static game.gamePlay.GameInit.structureGame;
 
 public class GameProcess {
- static int countSave = 0;
+
+   static int countSave = (int) (Math.random() * 100);
+
     public static void play() {
         StructureGame structureGame = GameInit.getStructureGame();
         Scanner scanner = new Scanner(System.in);
@@ -22,6 +25,7 @@ public class GameProcess {
                 break;
             }
         }
+
         while (true) {
             Map<Integer, GameSteps> menu = currentLevel.getNextLevels();
             System.out.println(currentLevel.getText() + "\n");
@@ -42,7 +46,7 @@ public class GameProcess {
                     choice = scanner.nextInt();
                     if (choice > countGame || choice <= 0) {
                         System.out.println("Нет такого пункта. Попробуйте снова:");
-                        continue;
+
                     } else break;
                 } else {
                     System.out.println("Не корректный ввод! Попробуйте снова:");
@@ -62,13 +66,10 @@ public class GameProcess {
     }
     public static void saveGame() {
 
-            countSave++;
-
         System.out.println("ИГРА СОХРАНЕНА!");
-
         try
                 (FileOutputStream fileStream = new FileOutputStream(new File("./src/game/save/game" +
-                          "_" + countSave  + ".bin"), true);
+                        "_" + countSave + ".bin"), true);
                  ObjectOutputStream objectOutput = new ObjectOutputStream(fileStream)) {
             objectOutput.writeObject(structureGame);
         } catch (FileNotFoundException e) {
@@ -77,6 +78,43 @@ public class GameProcess {
             System.out.println("IOException");
         }
         System.out.println("Под номером " + countSave + "!");
+    }
+
+
+    public static void loadGame() {
+        Map<Integer, File> listFiles = new HashMap<>();
+        File[] files = new File("./src/game/save").listFiles();
+        int count = 0;
+        for (File f : files) {
+            count++;
+            listFiles.put(count, f);
+        }
+        while (true) {
+            int choice;
+            System.out.println("Какой файл восстановить: ");
+            for (Map.Entry<Integer, File> pair : listFiles.entrySet()) {
+                System.out.println(pair.getKey() + "-----" + pair.getValue().getName());
+            }
+            Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice > 0 && choice <= listFiles.size()) {
+                    try (FileInputStream fileInput = new FileInputStream(listFiles.get(choice));
+                         ObjectInputStream objectInput = new ObjectInputStream(fileInput)) {
+                        structureGame = (StructureGame) objectInput.readObject();
+                        play();
+                    } catch (FileNotFoundException ignored) {
+                    } catch (IOException | ClassNotFoundException | NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
+                System.out.println("Нет такого пункта! Пробуйте снова:");
+            } else {
+                System.out.println("Не корректный ввод! Пробуйте снова:");
+                scanner.next();
+            }
+        }
     }
 
 

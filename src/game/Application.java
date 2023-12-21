@@ -10,13 +10,14 @@ public class Application {
         ReceiverCommand command = new ReceiverCommand();
         Scanner scanner = new Scanner(System.in);
         Command startGame = new Start(command);
+        Command loadGame = new Load(command);
         Command exitGame = new Exit(command);
         Command saveGame = new Save(command);
 
         Menu menu = new Menu();
         menu.regCommand(1, startGame);
         menu.regCommand(2, exitGame);
-        menu.regCommand(3, saveGame);
+        menu.regCommand(3, loadGame);
 
         while (true) {
             int choice;

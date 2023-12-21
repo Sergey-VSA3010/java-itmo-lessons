@@ -1,4 +1,4 @@
-package com.company.project.lesson27Multithreading.Task;
+package com.company.project.lesson27.Multithreading.Task;
 
 import java.io.File;
 import java.util.*;
